@@ -1,0 +1,504 @@
+/* CSS Variables */
+:root {
+    --color-pink-light: #F7E5EC; /* 淡くくすんだピンク */
+    --color-pink-sub: #F0C4D6; /* やや彩度のあるピンク */
+    --color-pink-accent: #E08DAF; /* 最も彩度のあるピンク (強調色) */
+    --color-brown-text: #5C4033; /* 焦茶色 (メインテキスト) */
+    --color-white: #FFFFFF;
+    --color-black: #333333;
+    --color-shadow: rgba(92, 64, 51, 0.1); /* 焦茶色の淡い影 */
+    
+    /* フォント設定: 明朝体とサンセリフ体の組み合わせ */
+    --font-serif: 'Shippori Mincho', serif;
+    --font-sans: 'Noto Sans JP', sans-serif;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-serif); /* 明朝体を基本に */
+    color: var(--color-brown-text);
+    line-height: 1.8;
+    background-color: var(--color-white);
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 600; /* 明朝体の太字 */
+    line-height: 1.4;
+}
+
+p, a, li {
+    font-family: var(--font-sans); /* 細かいテキストはサンセリフ体で視認性向上 */
+    font-weight: 300;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-brown-text);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-pink-accent);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.section {
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--color-pink-accent);
+    margin-bottom: 50px;
+    display: inline-block;
+    padding: 0 20px 10px;
+    border-bottom: 2px solid var(--color-pink-sub); /* 繊細な下線 */
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* Header & Navigation */
+.header {
+    position: absolute; /* メインビジュアルに重ねる */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 40px;
+}
+
+.logo a {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-brown-text);
+    letter-spacing: 1px;
+}
+
+.nav ul {
+    display: flex;
+    gap: 30px;
+    font-weight: 400;
+}
+
+/* Main Visual */
+.main-visual {
+    /* 淡いグラデーション背景 */
+    background: linear-gradient(135deg, var(--color-pink-light) 0%, var(--color-white) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 650px;
+    padding-top: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.visual-content {
+    z-index: 10;
+    text-align: left;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sub-copy {
+    font-size: 1.2rem;
+    color: var(--color-brown-text);
+    margin-bottom: 15px;
+    font-family: var(--font-sans);
+    font-weight: 400;
+}
+
+.main-copy {
+    font-size: 5rem;
+    font-weight: 600;
+    color: var(--color-pink-accent);
+    letter-spacing: 8px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5); /* 上品な光沢 */
+}
+
+.visual-image {
+    width: 50%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* 画像を中央から少しずらして配置する */
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+}
+
+.visual-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px; /* 角を少し丸く */
+    box-shadow: 0 15px 30px var(--color-shadow);
+}
+
+/* Ranking Section */
+.ranking-section {
+    background-color: var(--color-white);
+}
+
+.ranking-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px 30px; /* 縦横の余白を調整 */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.rank-item {
+    background-color: var(--color-white);
+    width: 250px; /* Top4に合わせて幅を調整 */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px var(--color-shadow);
+    position: relative;
+    text-align: center;
+    transition: all 0.4s ease;
+    border: 1px solid var(--color-pink-light);
+}
+
+.rank-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(224, 141, 175, 0.4); /* アクセントピンクの強い影 */
+}
+
+.rank-number {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    background-color: var(--color-pink-accent); 
+    color: var(--color-white);
+    font-family: var(--font-serif); /* 明朝体 */
+    font-size: 1.8rem;
+    font-weight: 600; 
+    width: 40px;
+    height: 40px;
+    line-height: 40px; 
+    border-radius: 5px; 
+    border: 3px solid var(--color-white);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    transform: rotate(0deg); /* アイコン全体を回転 */
+}
+
+/* ★★★ 数字の傾きを打ち消してまっすぐにする ★★★ */
+.rank-number span {
+    position: relative;
+    z-index: 1; 
+    display: block; 
+    /* アイコンの回転（45度）を打ち消すため、逆の-45度回転を適用 */
+    transform: rotate(-45deg); 
+}
+
+.item-image {
+    height: 180px;
+    background-color: var(--color-pink-light);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.brand-name {
+    font-size: 0.8rem;
+    color: #999;
+    font-family: var(--font-sans);
+    font-weight: 400;
+}
+
+.product-name {
+    font-size: 1.4rem;
+    color: var(--color-pink-accent);
+    margin: 8px 0 15px;
+    font-weight: 600;
+}
+
+.description {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.btn-buy {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: var(--color-pink-sub);
+    color: var(--color-brown-text);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    font-family: var(--font-sans);
+}
+
+.btn-buy:hover {
+    background-color: var(--color-pink-accent);
+    color: var(--color-white);
+}
+
+
+/* Review Section */
+.review-section {
+    background-color: var(--color-pink-light);
+    padding: 100px 5%;
+}
+
+.review-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    text-align: left;
+    background-color: var(--color-white);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px var(--color-shadow);
+}
+
+.review-image {
+    min-width: 300px;
+    height: 300px;
+    background-color: var(--color-pink-sub);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.review-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.review-text h4 {
+    font-size: 1.6rem;
+    color: var(--color-pink-accent);
+    margin-bottom: 20px;
+}
+
+.review-text p {
+    font-size: 1rem;
+    line-height: 2;
+}
+
+/* Point Section */
+.point-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.point-item {
+    width: 30%;
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px var(--color-shadow);
+    border: 1px dashed var(--color-pink-sub);
+}
+
+.point-icon {
+    width: 100%; /* 親要素の幅を使う */
+    height: 120px; /* 唇の画像を大きく表示 */
+    margin: 0 auto 20px;
+    overflow: hidden;
+}
+
+.point-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px; /* 唇の画像も角を丸く */
+}
+
+.point-item h4 {
+    color: var(--color-pink-accent);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* New Arrival Section */
+.new-arrival-section {
+    background-color: var(--color-white);
+}
+
+.new-arrival-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.new-item {
+    width: 350px;
+    background-color: var(--color-white);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px var(--color-shadow);
+    position: relative;
+    text-align: left;
+    overflow: hidden;
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    right: -25px;
+    font-family: var(--font-sans);
+    color: var(--color-white);
+    padding: 5px 30px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transform: rotate(45deg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.badge.limited {
+    background-color: var(--color-pink-accent); /* 限定品は最も濃いピンク */
+}
+
+.badge.new {
+    background-color: var(--color-pink-sub); /* 新作はサブピンク */
+}
+
+.new-item .item-image {
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+.new-item .item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-pink-light);
+    color: var(--color-brown-text);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+    font-family: var(--font-sans);
+    font-weight: 300;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .main-visual {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5%;
+        min-height: auto;
+    }
+    .visual-content {
+        position: static;
+        transform: none;
+        margin-bottom: 30px;
+    }
+    .main-copy {
+        font-size: 3rem;
+    }
+    .visual-image {
+        position: static;
+        transform: none;
+        width: 80%;
+        height: 300px;
+        margin: 0 auto;
+        justify-content: center;
+    }
+    .review-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .review-image {
+        min-width: 100%;
+        height: 200px;
+    }
+    .ranking-list, .point-list, .new-arrival-list {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .rank-item, .point-item, .new-item {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-inner {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav ul {
+        gap: 15px;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .main-copy {
+        font-size: 2.5rem;
+        letter-spacing: 5px;
+    }
+}
+
+/* header内のナビゲーションリンクの色を白に設定 */
+.nav ul li a {
+  color: #ffffff; /* 白色のカラーコード */
+  text-decoration: none; /* 下線が邪魔な場合は消します */
+}
+
+/* マウスカーソルを乗せたとき（ホバー時）の色も白に設定 */
+.nav ul li a:hover {
+  color: #ffffff;
+}
+
